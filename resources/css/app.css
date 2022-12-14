@@ -1,0 +1,11 @@
+.welcome {
+    background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url("/img/background/DALL·E 2022-11-05 04.28.28 - Nautical with many rented boats, oil painting.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
