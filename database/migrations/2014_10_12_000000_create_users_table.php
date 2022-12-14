@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('domicilio');
             $table->string('email')->unique();
             $table->integer('dni')->unique();
-            $table->integer('movil')->unique();
+            $table->integer('movil');
             $table->tinyInteger('estado');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Embarcacion::class);
+            $table->foreignIdFor(Amarra::class);
+            $table->date('fecha_desde');
+            $table->date('fecha_hasta')->nullable();
             $table->timestamps();
         });
     }

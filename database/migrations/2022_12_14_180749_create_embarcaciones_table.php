@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('rey')->unique();
-            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->foreignIdFor(User::class);
             $table->tinyInteger('estado');
             $table->timestamps();
         });
