@@ -13,4 +13,13 @@ class Movimiento extends Model
         'fecha_desde',
         'fecha_hasta'
     ];
+
+    public function amarra()
+    {
+        $this->belongsTo(Amarra::class);
+    }
+    public function embarcacion()
+    {
+        $this->belongsTo(Embarcacion::class);
+    }
 }

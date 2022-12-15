@@ -13,4 +13,9 @@ class Amarra extends Model
         'pasillo',
         'estado'
     ];
+
+    public function movimientos()
+    {
+        return $this->hasMany(Movimiento::class);
+    }
 }
