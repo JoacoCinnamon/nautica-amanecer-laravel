@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Amarra;
+use App\Models\Embarcacion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +21,6 @@ return new class extends Migration
             $table->foreignIdFor(Amarra::class);
             $table->date('fecha_desde');
             $table->date('fecha_hasta')->nullable();
-            $table->timestamps();
         });
     }
 
