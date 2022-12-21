@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AmarraController;
+use App\Http\Controllers\FallbackController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,3 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
   Route::resource('amarras', AmarraController::class);
 });
+
+Route::fallback(FallbackController::class);
