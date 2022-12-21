@@ -13,17 +13,24 @@
                             </a>
                             <p class="m-2">{{ $amarra->estado() }}</p>
                             <p class="m-2">{{ $amarra->borrado() }}</p>
-                            <a href="{{ route('amarras.edit', $amarra->id) }}" class="btn btn-secondary mb-2">Editar
-                                Amarra</a>
-                            <form action="{{ route('amarras.destroy', $amarra->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                @if (is_null($amarra->deleted_at))
-                                    <button type="submit" class="btn btn-danger mb-2">Borrar Amarra</button>
-                                @else
-                                    <button type="submit" class="btn btn-info mb-2">Restablecer Amarra</button>
-                                @endif
-                            </form>
+                            <div class="d-flex justify-content-center">
+                                <a href="{{ route('amarras.edit', $amarra->id) }}" class="btn btn-dark mb-1 py-2 me-2">
+                                    <x-icon icon="pencil" />
+                                </a>
+                                <form action="{{ route('amarras.destroy', $amarra->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    @if (is_null($amarra->deleted_at))
+                                        <button type="submit" class="btn btn-danger mb-1 py-2">
+                                            <x-icon icon="trash" />
+                                        </button>
+                                    @else
+                                        <button type="submit" class="btn btn-success mb-1 py-2">
+                                            <x-icon icon="arrow-up" />
+                                        </button>
+                                    @endif
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
