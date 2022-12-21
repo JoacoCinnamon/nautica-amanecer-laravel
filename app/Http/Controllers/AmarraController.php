@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Amarra;
 use Illuminate\Http\Request;
 
-class AmarraController extends Controller
-{
+class AmarraController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $amarras = Amarra::withTrashed()->paginate(18);
         return view('amarras.index', compact('amarras'));
     }
@@ -23,8 +21,7 @@ class AmarraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         return view('amarras.create');
     }
 
@@ -34,8 +31,7 @@ class AmarraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $data = $request->validate([
             "pasillo" => "required|numeric|min:1"
         ]);
@@ -56,8 +52,7 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         $amarra = Amarra::withTrashed()->findOrFail($id);
         $previous = Amarra::previous($amarra->id);
         $next = Amarra::next($amarra->id);
@@ -70,8 +65,7 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $amarra = Amarra::withTrashed()->findOrFail($id);
 
         if (!is_null($amarra->deleted_at)) {
@@ -90,8 +84,7 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Amarra $amarra)
-    {
+    public function update(Request $request, Amarra $amarra) {
         $data = $request->validate([
             "pasillo" => "required|numeric|min:1"
         ]);
@@ -110,8 +103,7 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $amarra = Amarra::withTrashed()->findOrFail($id);
 
         // Falta validar si está siendo ocupada o no por alguna embarcación

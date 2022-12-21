@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Movimiento;
 use Illuminate\Http\Request;
 
-class MovimientoController extends Controller
-{
+class MovimientoController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -22,8 +20,7 @@ class MovimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -33,8 +30,7 @@ class MovimientoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -44,8 +40,7 @@ class MovimientoController extends Controller
      * @param  \App\Models\Movimiento  $movimiento
      * @return \Illuminate\Http\Response
      */
-    public function show(Movimiento $movimiento)
-    {
+    public function show(Movimiento $movimiento) {
         //
     }
 
@@ -55,8 +50,7 @@ class MovimientoController extends Controller
      * @param  \App\Models\Movimiento  $movimiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movimiento $movimiento)
-    {
+    public function edit(Movimiento $movimiento) {
         //
     }
 
@@ -67,8 +61,7 @@ class MovimientoController extends Controller
      * @param  \App\Models\Movimiento  $movimiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movimiento $movimiento)
-    {
+    public function update(Request $request, Movimiento $movimiento) {
         //
     }
 
@@ -78,8 +71,7 @@ class MovimientoController extends Controller
      * @param  \App\Models\Movimiento  $movimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movimiento $movimiento)
-    {
+    public function destroy(Movimiento $movimiento) {
         //
     }
 }

@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Movimiento extends Model
-{
+class Movimiento extends Model {
     use HasFactory;
 
     protected $fillable = [
@@ -14,12 +13,10 @@ class Movimiento extends Model
         'fecha_hasta'
     ];
 
-    public function amarra()
-    {
+    public function amarra() {
         $this->belongsTo(Amarra::class);
     }
-    public function embarcacion()
-    {
+    public function embarcacion() {
         $this->belongsTo(Embarcacion::class, 'id_embarcacion', 'id_embarcacion');
     }
 }

@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 
-class Embarcacion extends Model
-{
+class Embarcacion extends Model {
     use HasFactory;
 
     protected $table = 'embarcaciones';
@@ -20,13 +18,11 @@ class Embarcacion extends Model
         'estado'
     ];
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function movimientos()
-    {
+    public function movimientos() {
         return $this->hasMany(Movimiento::class);
     }
 }

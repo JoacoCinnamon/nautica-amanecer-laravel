@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Embarcacion;
 use Illuminate\Http\Request;
 
-class EmbarcacionController extends Controller
-{
+class EmbarcacionController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -22,8 +20,7 @@ class EmbarcacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -33,8 +30,7 @@ class EmbarcacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -44,8 +40,7 @@ class EmbarcacionController extends Controller
      * @param  \App\Models\Embarcacion  $embarcacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Embarcacion $embarcacion)
-    {
+    public function show(Embarcacion $embarcacion) {
         //
     }
 
@@ -55,8 +50,7 @@ class EmbarcacionController extends Controller
      * @param  \App\Models\Embarcacion  $embarcacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Embarcacion $embarcacion)
-    {
+    public function edit(Embarcacion $embarcacion) {
         //
     }
 
@@ -67,8 +61,7 @@ class EmbarcacionController extends Controller
      * @param  \App\Models\Embarcacion  $embarcacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Embarcacion $embarcacion)
-    {
+    public function update(Request $request, Embarcacion $embarcacion) {
         //
     }
 
@@ -78,8 +71,7 @@ class EmbarcacionController extends Controller
      * @param  \App\Models\Embarcacion  $embarcacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Embarcacion $embarcacion)
-    {
+    public function destroy(Embarcacion $embarcacion) {
         //
     }
 }
