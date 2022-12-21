@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('amarras', function (Blueprint $table) {
-            $table->engine = "InnoDB";
-            $table->id();
-            $table->smallInteger('pasillo');
-            $table->tinyInteger('estado');
-            $table->timestamps();
+        Schema::table('amarras', function (Blueprint $table) {
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('amarras');
+        Schema::table('amarras', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
     }
 };

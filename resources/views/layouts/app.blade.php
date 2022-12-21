@@ -24,7 +24,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-light order-2 border-bottom border-secondary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/img/logo.png" class="me-1" alt="Logo" width="150px">
@@ -57,10 +57,24 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown d-flex">
+                                <a id="navbarAmarras" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Amarras') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAmarras">
+                                    <a class="dropdown-item" href="{{ route('amarras.index') }}">
+                                        {{ __('Ver Amarras') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('amarras.create') }}">
+                                        {{ __('Crear Amarras') }}
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown d-flex">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {!! Auth::user()->name . ' ' . Auth::user()->surname !!}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

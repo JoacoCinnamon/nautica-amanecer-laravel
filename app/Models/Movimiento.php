@@ -20,6 +20,6 @@ class Movimiento extends Model
     }
     public function embarcacion()
     {
-        $this->belongsTo(Embarcacion::class);
+        $this->belongsTo(Embarcacion::class, 'id_embarcacion', 'id_embarcacion');
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('movimientos', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->id();
             $table->foreignIdFor(Embarcacion::class);
             $table->foreignIdFor(Amarra::class);

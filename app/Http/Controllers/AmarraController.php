@@ -14,7 +14,8 @@ class AmarraController extends Controller
      */
     public function index()
     {
-        //
+        $amarras = Amarra::withTrashed()->paginate(18);
+        return view('amarras.index', compact('amarras'));
     }
 
     /**
@@ -24,7 +25,7 @@ class AmarraController extends Controller
      */
     public function create()
     {
-        //
+        return view('amarras.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class AmarraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "pasillo" => "required|numeric|min:1"
+        ]);
+        // Por defecto 0 porque es una amarra nueva
+        $data["estado"] = 0;
+
+        $amarra = Amarra::create($data);
+
+        return redirect()->route('amarras.index')->with('alert', [
+            'message' => "Amarra $amarra->id guardada con éxito",
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -44,9 +56,12 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function show(Amarra $amarra)
+    public function show($id)
     {
-        //
+        $amarra = Amarra::withTrashed()->findOrFail($id);
+        $previous = Amarra::previous($amarra->id);
+        $next = Amarra::next($amarra->id);
+        return view('amarras.show', compact(['amarra', 'next', 'previous']));
     }
 
     /**
@@ -55,9 +70,17 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function edit(Amarra $amarra)
+    public function edit($id)
     {
-        //
+        $amarra = Amarra::withTrashed()->findOrFail($id);
+
+        if (!is_null($amarra->deleted_at)) {
+            return redirect()->route('amarras.index')->with('alert', [
+                'message' => "No se puede editar una Amarra no activa",
+                'type' => 'warning',
+            ]);
+        }
+        return view('amarras.edit', compact('amarra'));
     }
 
     /**
@@ -69,7 +92,16 @@ class AmarraController extends Controller
      */
     public function update(Request $request, Amarra $amarra)
     {
-        //
+        $data = $request->validate([
+            "pasillo" => "required|numeric|min:1"
+        ]);
+
+        $amarra->update($data);
+
+        return redirect()->route('amarras.index')->with('alert', [
+            'message' => "Amarra $amarra->id editada con éxito",
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -78,8 +110,25 @@ class AmarraController extends Controller
      * @param  \App\Models\Amarra  $amarra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Amarra $amarra)
+    public function destroy($id)
     {
-        //
+        $amarra = Amarra::withTrashed()->findOrFail($id);
+
+        // Falta validar si está siendo ocupada o no por alguna embarcación
+
+        if (!is_null($amarra->deleted_at)) {
+            $amarra->restore();
+            return redirect()->route('amarras.index')->with('alert', [
+                'message' => "Amarra $amarra->id restablecida con éxito",
+                'type' => 'success',
+            ]);
+        }
+
+        $amarra->delete();
+
+        return redirect()->route('amarras.index')->with('alert', [
+            'message' => "Amarra $amarra->id borrada con éxito",
+            'type' => 'success',
+        ]);
     }
 }

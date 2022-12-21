@@ -19,12 +19,15 @@
             </symbol>
         </svg>
 
-        <div class="alert alert-{{ $type }} d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+        <div class="alert alert-{{ $type }}  d-flex align-items-center alert-dismissible fade show"
+            role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                aria-label="{{ ucfirst($type) }}:">
                 <use xlink:href="#{{ $type }}" />
             </svg>
             <div>
                 {!! $message !!}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
     </div>

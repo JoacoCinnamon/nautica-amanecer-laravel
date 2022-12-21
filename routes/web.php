@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmarraController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn () => auth()->check() ? redirect('home') : view('welcome'));
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function () {
+  Route::resource('amarras', AmarraController::class);
+});
