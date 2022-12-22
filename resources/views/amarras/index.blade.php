@@ -12,7 +12,6 @@
                                 <h5 class="card-title text-capitalize">Amarra {{ $amarra->id }}</h3>
                             </a>
                             <p class="m-2">{{ $amarra->estado() }}</p>
-                            <p class="m-2">{{ $amarra->borrado() }}</p>
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('amarras.edit', $amarra->id) }}" class="btn btn-dark mb-1 py-2 me-2">
                                     <x-icon icon="pencil" />

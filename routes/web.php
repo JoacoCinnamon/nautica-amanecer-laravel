@@ -26,4 +26,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('amarras', AmarraController::class);
 });
 
-Route::fallback(FallbackController::class);
+//Route::fallback(FallbackController::class);
